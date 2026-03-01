@@ -462,6 +462,17 @@ img {
     line-height: 1.5;
 }
 
+.tour-venue-link {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--transition);
+}
+
+.tour-venue-link:hover {
+    color: var(--accent-secondary);
+}
+
 .tour-action {
     flex-shrink: 0;
     display: flex;
@@ -474,7 +485,8 @@ img {
     white-space: nowrap;
 }
 
-.tour-calendar-btn {
+.tour-calendar-btn,
+.tour-notify-btn {
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
@@ -507,7 +519,8 @@ img {
     }
 
     .tour-ticket-btn,
-    .tour-calendar-btn {
+    .tour-calendar-btn,
+    .tour-notify-btn {
         width: 100%;
         justify-content: center;
     }

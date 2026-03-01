@@ -2,10 +2,11 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//Your Sensitivity Tested//Make It Funny//EN
 BEGIN:VEVENT
-DTSTART:20260425T200000
-DTEND:20260425T230000
+DTSTART;TZID=America/New_York:20260425T183000
+DTEND;TZID=America/New_York:20260425T200000
 SUMMARY:Make It Funny – Your Sensitivity Tested
-DESCRIPTION:One night. No filter. No safety net. Just us and a microphone.\n\nhttps://yoursensitivitytested.com
+DESCRIPTION:One night. No filter. No safety net. Just us and a microphone.\n\n5501 Gulf Blvd\, St Pete Beach\, FL 33706\nhttps://maps.app.goo.gl/Rv8XKwbQnZRorCsR8\n\nhttps://yoursensitivitytested.com
+LOCATION:5501 Gulf Blvd\, St Pete Beach\, FL 33706
 URL:https://yoursensitivitytested.com
 STATUS:CONFIRMED
 END:VEVENT
