@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Sensitivity Tested | Comedy Without Permission</title>
+    <meta name="description" content="We're not professional comedians. We just don't care. Your Sensitivity Tested — a comedy collective doing it for the love of the game.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎤</text></svg>">
+</head>
+<body>
+    <!-- Cursor glow effect -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">YST</a>
+            <div class="nav-links">
+                <a href="#roster">The Roster</a>
+                <a href="#manifesto">Why We Do This</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#roster">The Roster</a>
+            <a href="#manifesto">Why We Do This</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-noise"></div>
+        <div class="hero-content">
+            <div class="hero-badge" data-animate="fade-up">Not Professional. Not Sorry.</div>
+            <h1 class="hero-title" data-animate="fade-up" data-delay="100">
+                <span class="hero-title-line">YOUR</span>
+                <span class="hero-title-line accent">SENSITIVITY</span>
+                <span class="hero-title-line">TESTED</span>
+            </h1>
+            <p class="hero-subtitle" data-animate="fade-up" data-delay="200">
+                A comedy collective that exists because we think we're funny.<br>
+                <span class="dimmed">You might disagree. We don't care.</span>
+            </p>
+            <div class="hero-cta" data-animate="fade-up" data-delay="300">
+                <a href="#roster" class="btn btn-primary">Meet the Problem</a>
+                <a href="#manifesto" class="btn btn-ghost">Read the Manifesto</a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator" data-animate="fade-up" data-delay="500">
+            <span>Scroll if you dare</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M10 4V16M10 16L4 10M10 16L16 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Marquee -->
+    <section class="marquee-section">
+        <div class="marquee">
+            <div class="marquee-track">
+                <span>NO REFUNDS</span>
+                <span>★</span>
+                <span>EASILY OFFENDED? GOOD</span>
+                <span>★</span>
+                <span>WE DO THIS FOR FREE</span>
+                <span>★</span>
+                <span>YOUR COMFORT ZONE ENDS HERE</span>
+                <span>★</span>
+                <span>NO REFUNDS</span>
+                <span>★</span>
+                <span>EASILY OFFENDED? GOOD</span>
+                <span>★</span>
+                <span>WE DO THIS FOR FREE</span>
+                <span>★</span>
+                <span>YOUR COMFORT ZONE ENDS HERE</span>
+                <span>★</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roster Section -->
+    <section class="roster" id="roster">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">The Lineup</span>
+                <h2 class="section-title">Meet the Roster</h2>
+                <p class="section-desc">Five humans who voluntarily get on stage and say things into a microphone. On purpose.</p>
+            </div>
+
+            <div class="artist-grid">
+
+                <!-- Artist 1: Pritesh Damani -->
+                <article class="artist-card" data-animate="fade-up" data-delay="0">
+                    <div class="artist-card-inner">
+                        <div class="artist-image-wrap">
+                            <div class="artist-image-placeholder">
+                                <span class="artist-initial">PD</span>
+                            </div>
+                            <!-- Replace with: <img src="images/pritesh.jpg" alt="Pritesh Damani" class="artist-image"> -->
+                            <div class="artist-image-overlay"></div>
+                            <span class="artist-number">01</span>
+                        </div>
+                        <div class="artist-info">
+                            <h3 class="artist-name">Pritesh Damani</h3>
+                            <div class="artist-links">
+                                <a href="#" class="artist-link youtube-link" title="Watch on YouTube">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                    </svg>
+                                    <span>Watch Sets</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Artist 2: Andrey Polston -->
+                <article class="artist-card" data-animate="fade-up" data-delay="100">
+                    <div class="artist-card-inner">
+                        <div class="artist-image-wrap">
+                            <div class="artist-image-placeholder">
+                                <span class="artist-initial">AP</span>
+                            </div>
+                            <!-- Replace with: <img src="images/andrey.jpg" alt="Andrey Polston" class="artist-image"> -->
+                            <div class="artist-image-overlay"></div>
+                            <span class="artist-number">02</span>
+                        </div>
+                        <div class="artist-info">
+                            <h3 class="artist-name">Andrey Polston</h3>
+                            <div class="artist-links">
+                                <a href="#" class="artist-link youtube-link" title="Watch on YouTube">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                    </svg>
+                                    <span>Watch Sets</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Artist 3: Rahul Gupta -->
+                <article class="artist-card" data-animate="fade-up" data-delay="200">
+                    <div class="artist-card-inner">
+                        <div class="artist-image-wrap">
+                            <div class="artist-image-placeholder">
+                                <span class="artist-initial">RG</span>
+                            </div>
+                            <!-- Replace with: <img src="images/rahul.jpg" alt="Rahul Gupta" class="artist-image"> -->
+                            <div class="artist-image-overlay"></div>
+                            <span class="artist-number">03</span>
+                        </div>
+                        <div class="artist-info">
+                            <h3 class="artist-name">Rahul Gupta</h3>
+                            <div class="artist-links">
+                                <a href="#" class="artist-link youtube-link" title="Watch on YouTube">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                    </svg>
+                                    <span>Watch Sets</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Artist 4: David Caruso -->
+                <article class="artist-card" data-animate="fade-up" data-delay="300">
+                    <div class="artist-card-inner">
+                        <div class="artist-image-wrap">
+                            <div class="artist-image-placeholder">
+                                <span class="artist-initial">DC</span>
+                            </div>
+                            <!-- Replace with: <img src="images/david.jpg" alt="David Caruso" class="artist-image"> -->
+                            <div class="artist-image-overlay"></div>
+                            <span class="artist-number">04</span>
+                        </div>
+                        <div class="artist-info">
+                            <h3 class="artist-name">David Caruso</h3>
+                            <div class="artist-links">
+                                <a href="#" class="artist-link youtube-link" title="Watch on YouTube">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                    </svg>
+                                    <span>Watch Sets</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Artist 5: James Garner -->
+                <article class="artist-card" data-animate="fade-up" data-delay="400">
+                    <div class="artist-card-inner">
+                        <div class="artist-image-wrap">
+                            <div class="artist-image-placeholder">
+                                <span class="artist-initial">JG</span>
+                            </div>
+                            <!-- Replace with: <img src="images/james.jpg" alt="James Garner" class="artist-image"> -->
+                            <div class="artist-image-overlay"></div>
+                            <span class="artist-number">05</span>
+                        </div>
+                        <div class="artist-info">
+                            <h3 class="artist-name">James Garner</h3>
+                            <div class="artist-links">
+                                <a href="#" class="artist-link youtube-link" title="Watch on YouTube">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                    </svg>
+                                    <span>Watch Sets</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Manifesto Section -->
+    <section class="manifesto" id="manifesto">
+        <div class="manifesto-noise"></div>
+        <div class="container">
+            <div class="manifesto-content" data-animate="fade-up">
+                <span class="section-tag">The Manifesto</span>
+                <h2 class="manifesto-title">Why We Do This</h2>
+
+                <div class="manifesto-blocks">
+                    <div class="manifesto-block" data-animate="fade-up" data-delay="100">
+                        <span class="manifesto-number">01</span>
+                        <h3>We're Not Getting Paid</h3>
+                        <p>There's no paycheck. No sponsorship deal. No agent waiting in the wings. We do comedy because standing in front of strangers and trying to make them laugh is the most alive you can feel without a parachute.</p>
+                    </div>
+
+                    <div class="manifesto-block" data-animate="fade-up" data-delay="200">
+                        <span class="manifesto-number">02</span>
+                        <h3>We Don't Care What You Think</h3>
+                        <p>Actually, that's a lie&mdash;we care a little. But not enough to stop. If your feelings get hurt, that's between you and your therapist. We're here to test boundaries, including our own.</p>
+                    </div>
+
+                    <div class="manifesto-block" data-animate="fade-up" data-delay="300">
+                        <span class="manifesto-number">03</span>
+                        <h3>We Take Fun Seriously</h3>
+                        <p>We're not professional comedians. But we prepare like we are. We write, we rewrite, we bomb, we learn, and we get back up. The only difference between us and the pros? We don't have to pretend to like our booking agent.</p>
+                    </div>
+
+                    <div class="manifesto-block" data-animate="fade-up" data-delay="400">
+                        <span class="manifesto-number">04</span>
+                        <h3>Your Sensitivity? Consider It Tested.</h3>
+                        <p>The name isn't a warning&mdash;it's a promise. Comedy is supposed to make you uncomfortable sometimes. If every joke lands softly, nobody's actually saying anything. We'd rather be honest than polite.</p>
+                    </div>
+                </div>
+
+                <div class="manifesto-quote" data-animate="fade-up" data-delay="500">
+                    <blockquote>
+                        "We started this because someone had to. Nobody asked us to. That's the whole point."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="footer-logo">YST</span>
+                    <p class="footer-tagline">Comedy without permission since whenever we felt like it.</p>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Your Sensitivity Tested. No rights reserved. Steal our jokes, see if we care.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
