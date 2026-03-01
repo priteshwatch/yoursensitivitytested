@@ -93,6 +93,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Email Signup Modal ---
+    const emailModal = document.getElementById('emailModal');
+    const emailModalBackdrop = document.getElementById('emailModalBackdrop');
+    const emailModalClose = document.getElementById('emailModalClose');
+    const calendarBtn = document.getElementById('calendarBtn');
+
+    function openEmailModal() {
+        emailModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeEmailModal() {
+        emailModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (calendarBtn) {
+        calendarBtn.addEventListener('click', () => {
+            // Calendar link opens in new tab (default behavior)
+            // Show email modal after a short delay
+            setTimeout(openEmailModal, 1000);
+        });
+    }
+
+    if (emailModalBackdrop) emailModalBackdrop.addEventListener('click', closeEmailModal);
+    if (emailModalClose) emailModalClose.addEventListener('click', closeEmailModal);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && emailModal && emailModal.classList.contains('active')) {
+            closeEmailModal();
+        }
+    });
+
     // --- Smooth scroll for anchor links ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {

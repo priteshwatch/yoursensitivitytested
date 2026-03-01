@@ -178,6 +178,12 @@
                     </div>
                     <div class="tour-action">
                         <a href="#" class="btn btn-primary tour-ticket-btn" id="ticketLink">Get Tickets</a>
+                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Make+It+Funny+%E2%80%93+Your+Sensitivity+Tested&dates=20260425T200000/20260425T230000&details=One+night.+No+filter.+No+safety+net.+Just+us+and+a+microphone.%0A%0Ahttps://yoursensitivitytested.com&sf=true" target="_blank" class="btn btn-outline tour-calendar-btn" id="calendarBtn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            Mark Your Calendar
+                        </a>
                     </div>
                 </div>
             </div>
@@ -392,6 +398,26 @@
             </button>
             <div class="video-modal-player">
                 <iframe id="videoIframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email Signup Modal -->
+    <div class="email-modal" id="emailModal">
+        <div class="email-modal-backdrop" id="emailModalBackdrop"></div>
+        <div class="email-modal-content">
+            <button class="email-modal-close" id="emailModalClose" aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            <div class="email-modal-header">
+                <span class="email-modal-icon">📅</span>
+                <h3 class="email-modal-title">You're on the list (almost)</h3>
+                <p class="email-modal-desc">Calendar marked. Now drop your email so we can keep you in the loop — venue, time, and other things we'll figure out last minute.</p>
+            </div>
+            <div class="email-modal-form-wrap">
+                <iframe id="emailFormIframe" src="GOOGLE_FORM_EMBED_URL" width="100%" height="350" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
         </div>
     </div>
