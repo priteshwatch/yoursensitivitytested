@@ -93,13 +93,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- Email Signup Modal ---
+    // --- Calendar & Email Signup Modal (Multi-step) ---
     const emailModal = document.getElementById('emailModal');
     const emailModalBackdrop = document.getElementById('emailModalBackdrop');
     const emailModalClose = document.getElementById('emailModalClose');
     const calendarBtn = document.getElementById('calendarBtn');
+    const step1 = document.getElementById('modalStep1');
+    const step2 = document.getElementById('modalStep2');
+    const step3 = document.getElementById('modalStep3');
+    const icsDownloadBtn = document.getElementById('icsDownloadBtn');
+    const showFormBtn = document.getElementById('showFormBtn');
+    const skipFormBtn = document.getElementById('skipFormBtn');
+
+    function showStep(step) {
+        [step1, step2, step3].forEach(s => s.classList.add('hidden'));
+        step.classList.remove('hidden');
+    }
 
     function openEmailModal() {
+        showStep(step1);
         emailModal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
@@ -109,12 +121,31 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     }
 
+    // Open modal on "Mark Your Calendar" click
     if (calendarBtn) {
-        calendarBtn.addEventListener('click', () => {
-            // Calendar link opens in new tab (default behavior)
-            // Show email modal after a short delay
-            setTimeout(openEmailModal, 1000);
+        calendarBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openEmailModal();
         });
+    }
+
+    // Step 1 → Step 2: After ICS download
+    if (icsDownloadBtn) {
+        icsDownloadBtn.addEventListener('click', () => {
+            // ICS download happens via the <a> tag's download attribute
+            // Transition to step 2 after a brief moment
+            setTimeout(() => showStep(step2), 800);
+        });
+    }
+
+    // Step 2 → Step 3: Show form
+    if (showFormBtn) {
+        showFormBtn.addEventListener('click', () => showStep(step3));
+    }
+
+    // Skip: close modal
+    if (skipFormBtn) {
+        skipFormBtn.addEventListener('click', closeEmailModal);
     }
 
     if (emailModalBackdrop) emailModalBackdrop.addEventListener('click', closeEmailModal);

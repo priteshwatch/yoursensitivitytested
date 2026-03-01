@@ -178,12 +178,12 @@
                     </div>
                     <div class="tour-action">
                         <a href="#" class="btn btn-primary tour-ticket-btn" id="ticketLink">Get Tickets</a>
-                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Make+It+Funny+%E2%80%93+Your+Sensitivity+Tested&dates=20260425T200000/20260425T230000&details=One+night.+No+filter.+No+safety+net.+Just+us+and+a+microphone.%0A%0Ahttps://yoursensitivitytested.com&sf=true" target="_blank" class="btn btn-outline tour-calendar-btn" id="calendarBtn">
+                        <button class="btn btn-outline tour-calendar-btn" id="calendarBtn">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
                             </svg>
                             Mark Your Calendar
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -402,7 +402,7 @@
         </div>
     </div>
 
-    <!-- Email Signup Modal -->
+    <!-- Calendar & Email Signup Modal -->
     <div class="email-modal" id="emailModal">
         <div class="email-modal-backdrop" id="emailModalBackdrop"></div>
         <div class="email-modal-content">
@@ -411,13 +411,43 @@
                     <path d="M18 6L6 18M6 6l12 12"/>
                 </svg>
             </button>
-            <div class="email-modal-header">
-                <span class="email-modal-icon">📅</span>
-                <h3 class="email-modal-title">You're on the list (almost)</h3>
-                <p class="email-modal-desc">Calendar marked. Now drop your email so we can keep you in the loop — venue, time, and other things we'll figure out last minute.</p>
+
+            <!-- Step 1: Download ICS -->
+            <div class="email-modal-step" id="modalStep1">
+                <div class="email-modal-header">
+                    <span class="email-modal-icon">📅</span>
+                    <h3 class="email-modal-title">Mark Your Calendar</h3>
+                    <p class="email-modal-desc">April 25, 2026 — One night. No filter. No safety net.</p>
+                </div>
+                <a href="make-it-funny.ics" download class="btn btn-primary email-modal-download" id="icsDownloadBtn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Add to Calendar
+                </a>
             </div>
-            <div class="email-modal-form-wrap">
-                <iframe id="emailFormIframe" src="https://docs.google.com/forms/d/e/1FAIpQLScCRdKDitgxvbz6k5O-QoJZDpIUFB30kT4Zm_g7w4Pi8jI9Zg/viewform?embedded=true" width="100%" height="350" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+            <!-- Step 2: Email signup prompt -->
+            <div class="email-modal-step hidden" id="modalStep2">
+                <div class="email-modal-header">
+                    <span class="email-modal-icon">🎤</span>
+                    <h3 class="email-modal-title">You're locked in</h3>
+                    <p class="email-modal-desc">Want to know when tickets go on sale? Drop your email and we'll hit you up.</p>
+                </div>
+                <button class="btn btn-primary email-modal-notify" id="showFormBtn">Keep Me Informed</button>
+                <button class="btn btn-ghost email-modal-skip" id="skipFormBtn">Nah, I'll wing it</button>
+            </div>
+
+            <!-- Step 3: Google Form -->
+            <div class="email-modal-step hidden" id="modalStep3">
+                <div class="email-modal-header">
+                    <span class="email-modal-icon">📬</span>
+                    <h3 class="email-modal-title">Almost there</h3>
+                    <p class="email-modal-desc">We'll only email you about the show. No spam. We're comedians, not marketers.</p>
+                </div>
+                <div class="email-modal-form-wrap">
+                    <iframe id="emailFormIframe" src="https://docs.google.com/forms/d/e/1FAIpQLScCRdKDitgxvbz6k5O-QoJZDpIUFB30kT4Zm_g7w4Pi8jI9Zg/viewform?embedded=true" width="100%" height="350" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
             </div>
         </div>
     </div>
