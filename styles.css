@@ -356,6 +356,118 @@ img {
     100% { transform: translateX(-50%); }
 }
 
+/* --- Tour Section --- */
+.tour {
+    padding: 120px 0;
+}
+
+.tour-card {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.tour-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(255, 60, 0, 0.1);
+}
+
+.tour-card-inner {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 40px;
+}
+
+.tour-date-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    padding: 20px;
+    background: rgba(255, 60, 0, 0.08);
+    border: 1px solid rgba(255, 60, 0, 0.2);
+    border-radius: var(--radius-md);
+}
+
+.tour-month {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.tour-day {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--text);
+    letter-spacing: -0.03em;
+}
+
+.tour-year {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+.tour-details {
+    flex: 1;
+}
+
+.tour-show-name {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+.tour-show-tagline {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.tour-action {
+    flex-shrink: 0;
+}
+
+.tour-ticket-btn {
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .tour {
+        padding: 80px 0;
+    }
+
+    .tour-card-inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 24px;
+        gap: 24px;
+    }
+
+    .tour-action {
+        width: 100%;
+    }
+
+    .tour-ticket-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
 /* --- Section Utilities --- */
 .section-header {
     text-align: center;
