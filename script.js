@@ -97,7 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
             if (anchor.dataset.youtube) return; // skip video links
-            const target = document.querySelector(anchor.getAttribute('href'));
+            const href = anchor.getAttribute('href');
+            if (href.length <= 1) return; // skip bare "#" links
+            const target = document.querySelector(href);
             if (target) {
                 e.preventDefault();
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
