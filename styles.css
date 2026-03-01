@@ -32,6 +32,8 @@ html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -168,6 +170,8 @@ img {
     gap: 16px;
     padding: 24px;
     text-align: center;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
 }
 
 .mobile-menu a {
@@ -307,6 +311,14 @@ img {
     background: var(--accent-secondary);
     box-shadow: 0 0 50px var(--accent-glow);
     transform: translateY(-2px);
+}
+
+.btn.disabled,
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none;
 }
 
 .btn-ghost {
@@ -477,8 +489,16 @@ img {
     .tour-card-inner {
         flex-direction: column;
         text-align: center;
-        padding: 32px 24px;
-        gap: 24px;
+        padding: 28px 20px;
+        gap: 20px;
+    }
+
+    .tour-show-name {
+        font-size: 1.4rem;
+    }
+
+    .tour-show-tagline {
+        font-size: 0.85rem;
     }
 
     .tour-action {
@@ -534,7 +554,7 @@ img {
 
 .artist-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 24px;
 }
 
@@ -696,7 +716,7 @@ img {
 
 .manifesto-blocks {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
     gap: 24px;
     text-align: left;
     margin-bottom: 64px;
@@ -946,6 +966,18 @@ img {
     .manifesto-blocks {
         grid-template-columns: 1fr;
     }
+
+    .video-modal-close {
+        top: -40px;
+    }
+
+    .video-modal-content {
+        width: 95%;
+    }
+
+    .footer {
+        padding: 36px 0;
+    }
 }
 
 @media (max-width: 480px) {
@@ -953,8 +985,55 @@ img {
         font-size: 3rem;
     }
 
+    .hero {
+        padding: 90px 16px 50px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
     .section-title {
         font-size: 2rem;
+    }
+
+    .tour-card-inner {
+        padding: 24px 16px;
+    }
+
+    .tour-date-block {
+        min-width: 80px;
+        padding: 16px;
+    }
+
+    .tour-day {
+        font-size: 2.4rem;
+    }
+
+    .artist-info {
+        padding: 20px 16px;
+    }
+
+    .artist-name {
+        font-size: 1.2rem;
+    }
+
+    .manifesto-block {
+        padding: 24px 20px;
+    }
+
+    .email-modal-content {
+        padding: 24px 16px;
+        width: 96%;
+    }
+
+    .email-modal-form-wrap iframe {
+        min-height: 300px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.8rem;
     }
 }
 
