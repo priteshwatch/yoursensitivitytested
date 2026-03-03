@@ -14,12 +14,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const ticketsEl = document.getElementById('ticketsLeft');
     const urgencyEl = document.getElementById('tourUrgency');
     const updatedEl = document.getElementById('ticketsUpdated');
+    const urgencyText = document.getElementById('urgencyText');
+    let urgencyTriggered = false;
+
     if (ticketsEl && urgencyEl) {
         if (!TICKETS_LEFT) {
             urgencyEl.style.display = 'none';
         } else {
             ticketsEl.textContent = TICKETS_LEFT;
-            if (updatedEl) updatedEl.textContent = 'as of ' + TICKETS_UPDATED;
+            if (updatedEl) updatedEl.textContent = TICKETS_UPDATED;
+
+            // Scroll-triggered ticket drop gag
+            const urgencyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !urgencyTriggered) {
+                        urgencyTriggered = true;
+                        urgencyObserver.unobserve(urgencyEl);
+
+                        // After 1.5s, drop the number by 1 with a flash
+                        setTimeout(() => {
+                            ticketsEl.textContent = TICKETS_LEFT - 1;
+                            ticketsEl.classList.add('ticket-flash');
+                            urgencyEl.classList.add('urgency-shake');
+                        }, 1500);
+
+                        // After 4s, hit them with the punchline
+                        setTimeout(() => {
+                            ticketsEl.classList.remove('ticket-flash');
+                            urgencyEl.classList.remove('urgency-shake');
+                            urgencyText.innerHTML = '<strong id="ticketsLeft">' + TICKETS_LEFT + '</strong> seats left — Just fucking with you. It\'s still ' + TICKETS_LEFT + '.';
+                        }, 4000);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            urgencyObserver.observe(urgencyEl);
         }
     }
 
