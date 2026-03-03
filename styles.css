@@ -469,6 +469,43 @@ img {
     transition: color var(--transition);
 }
 
+.tour-urgency {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: rgba(255, 60, 0, 0.08);
+    border: 1px solid rgba(255, 60, 0, 0.2);
+    border-radius: 100px;
+    margin-top: 16px;
+}
+
+.tour-urgency-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    animation: urgency-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes urgency-pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255, 60, 0, 0.4); }
+    50% { opacity: 0.6; box-shadow: 0 0 0 6px rgba(255, 60, 0, 0); }
+}
+
+.tour-urgency-text {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    letter-spacing: 0.01em;
+}
+
+.tour-urgency-text strong {
+    color: var(--accent);
+    font-weight: 700;
+}
+
 .tour-venue-link:hover {
     color: var(--accent-secondary);
 }

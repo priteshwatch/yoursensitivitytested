@@ -4,6 +4,22 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // =============================================
+    // TICKETS LEFT — Change this number to update the urgency counter
+    // Set to 0 or false to hide the urgency bar entirely
+    // =============================================
+    const TICKETS_LEFT = 23;
+
+    const ticketsEl = document.getElementById('ticketsLeft');
+    const urgencyEl = document.getElementById('tourUrgency');
+    if (ticketsEl && urgencyEl) {
+        if (!TICKETS_LEFT) {
+            urgencyEl.style.display = 'none';
+        } else {
+            ticketsEl.textContent = TICKETS_LEFT;
+        }
+    }
+
     // --- Cursor Glow ---
     const cursorGlow = document.getElementById('cursorGlow');
     if (window.matchMedia('(hover: hover)').matches) {
