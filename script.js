@@ -27,6 +27,25 @@ document.addEventListener('DOMContentLoaded', () => {
             // Ticket countdown gag — drops by 1 every second when section is visible
             const DROP_COUNT = 8;
             const tourSection = document.getElementById('tour');
+            const soldToast = document.getElementById('soldToast');
+
+            const soldMessages = [
+                '🔥 1 more just sold',
+                '👀 another one gone',
+                '💨 poof — sold',
+                '🎟️ someone\'s smarter than you',
+                '😬 that was close',
+                '🏃 they didn\'t hesitate',
+                '👋 bye bye seat',
+                '🪑 and another one\'s gone',
+            ];
+
+            function showSoldToast(index) {
+                if (!soldToast) return;
+                soldToast.textContent = soldMessages[index % soldMessages.length];
+                soldToast.classList.add('show');
+                setTimeout(() => soldToast.classList.remove('show'), 700);
+            }
 
             function startCountdownGag() {
                 if (urgencyTriggered) return;
@@ -36,16 +55,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 let dropped = 0;
 
                 const interval = setInterval(() => {
-                    dropped++;
                     current--;
                     ticketsEl.textContent = current;
                     ticketsEl.classList.add('ticket-flash');
+                    showSoldToast(dropped);
                     setTimeout(() => ticketsEl.classList.remove('ticket-flash'), 400);
+                    dropped++;
 
                     if (dropped >= DROP_COUNT) {
                         clearInterval(interval);
                         // Punchline after a beat
                         setTimeout(() => {
+                            if (soldToast) soldToast.style.display = 'none';
                             urgencyText.innerHTML = '<strong>' + TICKETS_LEFT + '</strong> seats left — Just fucking with you. It\'s still ' + TICKETS_LEFT + '.';
                         }, 1500);
                     }
