@@ -25,8 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (updatedEl) updatedEl.textContent = TICKETS_UPDATED;
 
             // Scroll-triggered ticket drop gag
+            // Wait a beat before arming the observer so it doesn't fire on page load
+            let observerArmed = false;
+            setTimeout(() => { observerArmed = true; }, 500);
+
             const urgencyObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
+                    if (!observerArmed) return;
                     if (entry.isIntersecting && !urgencyTriggered) {
                         urgencyTriggered = true;
                         urgencyObserver.unobserve(urgencyEl);
@@ -42,11 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         setTimeout(() => {
                             ticketsEl.classList.remove('ticket-flash');
                             urgencyEl.classList.remove('urgency-shake');
-                            urgencyText.innerHTML = '<strong id="ticketsLeft">' + TICKETS_LEFT + '</strong> seats left — Just fucking with you. It\'s still ' + TICKETS_LEFT + '.';
+                            urgencyText.innerHTML = '<strong>' + TICKETS_LEFT + '</strong> seats left — Just fucking with you. It\'s still ' + TICKETS_LEFT + '.';
                         }, 4000);
                     }
                 });
-            }, { threshold: 0.5 });
+            }, { threshold: 0.3 });
 
             urgencyObserver.observe(urgencyEl);
         }
