@@ -24,31 +24,46 @@ document.addEventListener('DOMContentLoaded', () => {
             ticketsEl.textContent = TICKETS_LEFT;
             if (updatedEl) updatedEl.textContent = TICKETS_UPDATED;
 
-            // Ticket drop gag — triggers on hover (desktop) or tap (mobile) on tour card
-            const tourCard = document.querySelector('.tour-card');
-            function triggerTicketGag() {
+            // Ticket countdown gag — drops by 1 every second when section is visible
+            const DROP_COUNT = 8;
+            const tourSection = document.getElementById('tour');
+
+            function startCountdownGag() {
                 if (urgencyTriggered) return;
                 urgencyTriggered = true;
 
-                // Drop the number by 1 with a flash
-                setTimeout(() => {
-                    ticketsEl.textContent = TICKETS_LEFT - 1;
+                let current = TICKETS_LEFT;
+                let dropped = 0;
+
+                const interval = setInterval(() => {
+                    dropped++;
+                    current--;
+                    ticketsEl.textContent = current;
                     ticketsEl.classList.add('ticket-flash');
-                    urgencyEl.classList.add('urgency-shake');
-                }, 500);
+                    setTimeout(() => ticketsEl.classList.remove('ticket-flash'), 400);
 
-                // Hit them with the punchline
-                setTimeout(() => {
-                    ticketsEl.classList.remove('ticket-flash');
-                    urgencyEl.classList.remove('urgency-shake');
-                    urgencyText.innerHTML = '<strong>' + TICKETS_LEFT + '</strong> seats left — Just fucking with you. It\'s still ' + TICKETS_LEFT + '.';
-                }, 3500);
+                    if (dropped >= DROP_COUNT) {
+                        clearInterval(interval);
+                        // Punchline after a beat
+                        setTimeout(() => {
+                            urgencyText.innerHTML = '<strong>' + TICKETS_LEFT + '</strong> seats left — Just fucking with you. It\'s still ' + TICKETS_LEFT + '.';
+                        }, 1500);
+                    }
+                }, 1000);
             }
 
-            if (tourCard) {
-                tourCard.addEventListener('mouseenter', triggerTicketGag);
-                tourCard.addEventListener('touchstart', triggerTicketGag, { passive: true });
-            }
+            // Use IntersectionObserver on the tour section itself
+            const tourGagObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !urgencyTriggered) {
+                        tourGagObserver.disconnect();
+                        // Wait 1 sec after section is visible, then start dropping
+                        setTimeout(startCountdownGag, 1000);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            if (tourSection) tourGagObserver.observe(tourSection);
         }
     }
 
