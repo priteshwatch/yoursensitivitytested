@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // TICKETS LEFT — Change this number to update the urgency counter
     // Set to 0 or false to hide the urgency bar entirely
     // =============================================
-    const TICKETS_LEFT = 45;
+    const TICKETS_LEFT = 19;
     const TICKETS_UPDATED = 'Mar 2, 2026 5:30 PM EST';
 
     const ticketsEl = document.getElementById('ticketsLeft');
