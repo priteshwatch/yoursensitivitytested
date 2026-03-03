@@ -24,36 +24,31 @@ document.addEventListener('DOMContentLoaded', () => {
             ticketsEl.textContent = TICKETS_LEFT;
             if (updatedEl) updatedEl.textContent = TICKETS_UPDATED;
 
-            // Scroll-triggered ticket drop gag
-            // Wait a beat before arming the observer so it doesn't fire on page load
-            let observerArmed = false;
-            setTimeout(() => { observerArmed = true; }, 500);
+            // Ticket drop gag — triggers on hover (desktop) or tap (mobile) on tour card
+            const tourCard = document.querySelector('.tour-card');
+            function triggerTicketGag() {
+                if (urgencyTriggered) return;
+                urgencyTriggered = true;
 
-            const urgencyObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (!observerArmed) return;
-                    if (entry.isIntersecting && !urgencyTriggered) {
-                        urgencyTriggered = true;
-                        urgencyObserver.unobserve(urgencyEl);
+                // Drop the number by 1 with a flash
+                setTimeout(() => {
+                    ticketsEl.textContent = TICKETS_LEFT - 1;
+                    ticketsEl.classList.add('ticket-flash');
+                    urgencyEl.classList.add('urgency-shake');
+                }, 500);
 
-                        // After 1.5s, drop the number by 1 with a flash
-                        setTimeout(() => {
-                            ticketsEl.textContent = TICKETS_LEFT - 1;
-                            ticketsEl.classList.add('ticket-flash');
-                            urgencyEl.classList.add('urgency-shake');
-                        }, 1500);
+                // Hit them with the punchline
+                setTimeout(() => {
+                    ticketsEl.classList.remove('ticket-flash');
+                    urgencyEl.classList.remove('urgency-shake');
+                    urgencyText.innerHTML = '<strong>' + TICKETS_LEFT + '</strong> seats left — Just fucking with you. It\'s still ' + TICKETS_LEFT + '.';
+                }, 3500);
+            }
 
-                        // After 4s, hit them with the punchline
-                        setTimeout(() => {
-                            ticketsEl.classList.remove('ticket-flash');
-                            urgencyEl.classList.remove('urgency-shake');
-                            urgencyText.innerHTML = '<strong>' + TICKETS_LEFT + '</strong> seats left — Just fucking with you. It\'s still ' + TICKETS_LEFT + '.';
-                        }, 4000);
-                    }
-                });
-            }, { threshold: 0.3 });
-
-            urgencyObserver.observe(urgencyEl);
+            if (tourCard) {
+                tourCard.addEventListener('mouseenter', triggerTicketGag);
+                tourCard.addEventListener('touchstart', triggerTicketGag, { passive: true });
+            }
         }
     }
 
