@@ -5,87 +5,31 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // =============================================
-    // TICKETS LEFT — Change this number to update the urgency counter
-    // Set to 0 or false to hide the urgency bar entirely
+    // SOLD OUT — "Cry About It" button gag
     // =============================================
-    const TICKETS_LEFT = 19;
-    const TICKETS_UPDATED = 'Mar 2, 2026 5:30 PM EST';
-
-    const ticketsEl = document.getElementById('ticketsLeft');
-    const urgencyEl = document.getElementById('tourUrgency');
-    const updatedEl = document.getElementById('ticketsUpdated');
-    const urgencyText = document.getElementById('urgencyText');
-    let urgencyTriggered = false;
-
-    if (ticketsEl && urgencyEl) {
-        if (!TICKETS_LEFT) {
-            urgencyEl.style.display = 'none';
-        } else {
-            ticketsEl.textContent = TICKETS_LEFT;
-            if (updatedEl) updatedEl.textContent = TICKETS_UPDATED;
-
-            // Ticket countdown gag — drops by 1 every second when section is visible
-            const DROP_COUNT = 8;
-            const tourSection = document.getElementById('tour');
-            const soldToast = document.getElementById('soldToast');
-
-            const soldMessages = [
-                '🔥 1 more just sold',
-                '👀 another one gone',
-                '💨 poof — sold',
-                '🎟️ someone\'s smarter than you',
-                '😬 that was close',
-                '🏃 they didn\'t hesitate',
-                '👋 bye bye seat',
-                '🪑 and another one\'s gone',
-            ];
-
-            function showSoldToast(index) {
-                if (!soldToast) return;
-                soldToast.textContent = soldMessages[index % soldMessages.length];
-                soldToast.classList.add('show');
-                setTimeout(() => soldToast.classList.remove('show'), 700);
-            }
-
-            function startCountdownGag() {
-                if (urgencyTriggered) return;
-                urgencyTriggered = true;
-
-                let current = TICKETS_LEFT;
-                let dropped = 0;
-
-                const interval = setInterval(() => {
-                    current--;
-                    ticketsEl.textContent = current;
-                    ticketsEl.classList.add('ticket-flash');
-                    showSoldToast(dropped);
-                    setTimeout(() => ticketsEl.classList.remove('ticket-flash'), 400);
-                    dropped++;
-
-                    if (dropped >= DROP_COUNT) {
-                        clearInterval(interval);
-                        // Punchline after a beat
-                        setTimeout(() => {
-                            if (soldToast) soldToast.style.display = 'none';
-                            urgencyText.innerHTML = '<strong>' + TICKETS_LEFT + '</strong> seats left — Just fucking with you. It\'s still ' + TICKETS_LEFT + '.';
-                        }, 1500);
-                    }
-                }, 1000);
-            }
-
-            // Use IntersectionObserver on the tour section itself
-            const tourGagObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !urgencyTriggered) {
-                        tourGagObserver.disconnect();
-                        // Wait 1 sec after section is visible, then start dropping
-                        setTimeout(startCountdownGag, 1000);
-                    }
-                });
-            }, { threshold: 0.2 });
-
-            if (tourSection) tourGagObserver.observe(tourSection);
-        }
+    const soldOutBtn = document.getElementById('soldOutBtn');
+    if (soldOutBtn) {
+        const cryMessages = [
+            'Still Sold Out',
+            'We Said No',
+            'Stop It',
+            'Seriously?',
+            'Ask Nicely… Nah Still No',
+            'You Had Your Chance',
+            'Not Happening',
+            'Try Craigslist',
+            'Read the Room',
+            'Fine, One Ticket… JK',
+            'OK We Feel Bad… Not Really',
+            'Beg Harder',
+        ];
+        let cryIndex = 0;
+        soldOutBtn.addEventListener('click', () => {
+            cryIndex = (cryIndex + 1) % cryMessages.length;
+            soldOutBtn.textContent = cryMessages[cryIndex];
+            soldOutBtn.classList.add('sold-out-shake');
+            setTimeout(() => soldOutBtn.classList.remove('sold-out-shake'), 500);
+        });
     }
 
     // --- Cursor Glow ---

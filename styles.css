@@ -471,82 +471,54 @@ img {
     transition: color var(--transition);
 }
 
-.tour-urgency {
+.tour-sold-out {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 12px 20px;
-    background: rgba(255, 60, 0, 0.08);
-    border: 1px solid rgba(255, 60, 0, 0.2);
+    gap: 12px;
+    padding: 14px 20px;
+    background: rgba(255, 60, 0, 0.06);
+    border: 1px solid rgba(255, 60, 0, 0.15);
     border-radius: var(--radius-md);
     flex-wrap: wrap;
     width: 100%;
 }
 
-.tour-urgency-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
+.sold-out-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: #fff;
     background: var(--accent);
+    padding: 4px 14px;
+    border-radius: 100px;
+    text-transform: uppercase;
     flex-shrink: 0;
-    animation: urgency-pulse 1.5s ease-in-out infinite;
 }
 
-@keyframes urgency-pulse {
-    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255, 60, 0, 0.4); }
-    50% { opacity: 0.6; box-shadow: 0 0 0 6px rgba(255, 60, 0, 0); }
-}
-
-.tour-urgency-text {
+.sold-out-text {
     font-size: 0.8rem;
     color: var(--text-dim);
     letter-spacing: 0.01em;
 }
 
-.tour-urgency-text strong {
-    color: var(--accent);
-    font-weight: 700;
-    transition: transform 0.3s ease;
-    display: inline-block;
+.sold-out-btn {
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
 }
 
-.ticket-flash {
-    animation: ticket-blink 0.3s ease-in-out 2;
+.sold-out-shake {
+    animation: sold-out-shake 0.4s ease-in-out;
 }
 
-@keyframes ticket-blink {
-    0%, 100% { opacity: 1; color: var(--accent); }
-    50% { opacity: 0.2; color: #ff0000; }
-}
-
-.tour-sold-toast {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: #fff;
-    background: var(--accent);
-    padding: 4px 12px;
-    border-radius: 100px;
-    opacity: 0;
-    transform: translateY(6px) scale(0.9);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    white-space: nowrap;
-}
-
-.tour-sold-toast.show {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-.urgency-shake {
-    animation: urgency-shake 0.4s ease-in-out 2;
-}
-
-@keyframes urgency-shake {
+@keyframes sold-out-shake {
     0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-4px); }
-    75% { transform: translateX(4px); }
+    20% { transform: translateX(-6px); }
+    40% { transform: translateX(6px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(4px); }
 }
 
 .tour-urgency-updated {
