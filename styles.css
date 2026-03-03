@@ -386,7 +386,7 @@ img {
 }
 
 .tour-card {
-    max-width: 800px;
+    max-width: 520px;
     margin: 0 auto;
     border-radius: var(--radius-lg);
     overflow: hidden;
@@ -403,9 +403,11 @@ img {
 
 .tour-card-inner {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 32px;
-    padding: 40px;
+    text-align: center;
+    gap: 24px;
+    padding: 40px 32px;
 }
 
 .tour-date-block {
@@ -474,12 +476,12 @@ img {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 10px 20px;
+    padding: 12px 20px;
     background: rgba(255, 60, 0, 0.08);
     border: 1px solid rgba(255, 60, 0, 0.2);
     border-radius: var(--radius-md);
-    margin-top: 16px;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .tour-urgency-dot {
@@ -540,20 +542,22 @@ img {
 }
 
 .tour-action {
-    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    width: 100%;
 }
 
 .tour-ticket-btn {
-    white-space: nowrap;
+    width: 100%;
+    justify-content: center;
 }
 
 .tour-calendar-btn,
 .tour-notify-btn {
-    white-space: nowrap;
+    width: 100%;
+    justify-content: center;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -566,8 +570,6 @@ img {
     }
 
     .tour-card-inner {
-        flex-direction: column;
-        text-align: center;
         padding: 28px 20px;
         gap: 20px;
     }
@@ -578,17 +580,6 @@ img {
 
     .tour-show-tagline {
         font-size: 0.85rem;
-    }
-
-    .tour-action {
-        width: 100%;
-    }
-
-    .tour-ticket-btn,
-    .tour-calendar-btn,
-    .tour-notify-btn {
-        width: 100%;
-        justify-content: center;
     }
 }
 
